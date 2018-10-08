@@ -1,0 +1,42 @@
+curl -X PUT "localhost:9200/web/_mapping/_doc" -H 'Content-Type: application/json' -d'
+{
+        "properties" : {
+          "address" : {
+            "type" : "text",
+	    "analyzer": "keyword",
+            "fields" : {
+              "raw" : {
+                "type" : "keyword"
+              }
+            }
+          },
+          "feedDate" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "links" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "source" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          }
+        }
+      }
+'
